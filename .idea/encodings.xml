@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Controller" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Tool" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/model" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/util/DBUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/Login.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/LoginPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/Main.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBook.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBookType.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBorrowInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageFace.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageReader.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageReaderType.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageSuper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageFore.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageOne.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageThree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageTow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserBook.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserFace.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserMessage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserReturn.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml" charset="UTF-8" />
+  </component>
+</project>
