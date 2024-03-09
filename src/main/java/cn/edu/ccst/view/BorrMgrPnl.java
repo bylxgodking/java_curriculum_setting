@@ -3,6 +3,8 @@ package cn.edu.ccst.view;
 import cn.edu.ccst.model.Book;
 import cn.edu.ccst.model.Borrowed;
 import cn.edu.ccst.model.User;
+
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -138,7 +140,11 @@ public class BorrMgrPnl extends javax.swing.JPanel {
         btnBorrBook.setText("图书借阅");
         btnBorrBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrBookActionPerformed(evt);
+                try {
+                    btnBorrBookActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -312,7 +318,7 @@ public class BorrMgrPnl extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBorrBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrBookActionPerformed
+    private void btnBorrBookActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_btnBorrBookActionPerformed
         // 图书借阅
         String strUserId = txtUserId.getText().trim();
         if(!StringUtil.hasLength(strUserId)){

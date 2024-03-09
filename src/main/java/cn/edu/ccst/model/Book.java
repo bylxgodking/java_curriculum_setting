@@ -19,6 +19,15 @@ public class Book {
     private String abstractText;
     private String status;
     private String mark;
+    private String setBookAbstract;
+
+    public String getSetBookAbstract() {
+        return setBookAbstract;
+    }
+
+    public void setSetBookAbstract(String setBookAbstract) {
+        this.setBookAbstract = setBookAbstract;
+    }
 
     public String getId() {
         return id;
@@ -105,12 +114,13 @@ public class Book {
                 ", abstractText='" + abstractText + '\'' +
                 ", status='" + status + '\'' +
                 ", mark='" + mark + '\'' +
+                ", setBookAbstract='" + setBookAbstract + '\'' +
                 '}';
     }
 
     public Book() {}
 
-    public Book(String id, String name, String type, String author, String publisher, double price, String abstractText, String status, String mark) {
+    public Book(String id, String name, String type, String author, String publisher, double price, String abstractText, String status, String mark, String setBookAbstract) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -120,5 +130,11 @@ public class Book {
         this.abstractText = abstractText;
         this.status = status;
         this.mark = mark;
+        this.setBookAbstract = setBookAbstract;
     }
+
+    public void setBookAbstract(String strAbstract) {
+        this.setBookAbstract=strAbstract;
+    }
+
 }

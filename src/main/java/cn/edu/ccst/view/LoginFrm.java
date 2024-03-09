@@ -1,7 +1,9 @@
 package cn.edu.ccst.view;
 
 import cn.edu.ccst.model.User;
-import java.awt.Toolkit;
+
+import java.awt.*;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import cn.edu.ccst.service.impl.UserServiceImpl;
@@ -22,7 +24,7 @@ public class LoginFrm extends javax.swing.JFrame {
         FrmUtil.setMyLookAndFeel(FrmUtil.fontSize);
         
         initComponents();
-        
+
         FrmUtil.centerFrm(this);
         setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/icon/logo.jpg")));
     }
@@ -48,7 +50,11 @@ public class LoginFrm extends javax.swing.JFrame {
         btnLogin.setText("登  陆");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                try {
+                    btnLoginActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -65,7 +71,11 @@ public class LoginFrm extends javax.swing.JFrame {
 
         txtUserPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserPasswordActionPerformed(evt);
+                try {
+                    txtUserPasswordActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -112,7 +122,7 @@ public class LoginFrm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_btnLoginActionPerformed
         // 登陆系统
         String strUserId = txtUserId.getText().trim();
         if (!StringUtil.hasLength(strUserId)) {
@@ -142,7 +152,7 @@ public class LoginFrm extends javax.swing.JFrame {
         FrmUtil.exitSystem();
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void txtUserPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserPasswordActionPerformed
+    private void txtUserPasswordActionPerformed(java.awt.event.ActionEvent evt) throws IOException {//GEN-FIRST:event_txtUserPasswordActionPerformed
         // TODO add your handling code here:
         btnLoginActionPerformed(null);
     }//GEN-LAST:event_txtUserPasswordActionPerformed
@@ -177,7 +187,8 @@ public class LoginFrm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginFrm().setVisible(true);
+                LoginFrm loginFrm = new LoginFrm();
+                loginFrm.setVisible(true);
             }
         });
     }

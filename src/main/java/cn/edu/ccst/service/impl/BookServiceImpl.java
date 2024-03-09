@@ -1,8 +1,13 @@
 package cn.edu.ccst.service.impl;
 
+import cn.edu.ccst.mapper.BookMapper;
+import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.Book;
 import cn.edu.ccst.model.Borrowed;
+import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.BookService;
+import cn.edu.ccst.util.MybatisUtil;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -16,27 +21,47 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
     @Override
     public Book queryBookById(String id) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        Book book =bookMapper.queryBookById(id);
+        sqlSession.commit();
+        return book;
     }
 
     @Override
     public boolean addBook(Book book) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        boolean addedBook =bookMapper.addBook(book);
+        sqlSession.commit();
+        return addedBook;
     }
 
     @Override
     public boolean modBook(Book book) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        boolean addedBook =bookMapper.modBook(book);
+        sqlSession.commit();
+        return addedBook;
     }
 
     @Override
     public boolean delBook(Book book) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        boolean addedBook =bookMapper.delBook(book);
+        sqlSession.commit();
+        return addedBook;
     }
 
     @Override
     public List<Book> queryAllBooksByWhere(Book where) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        List<Book> bookList = bookMapper.queryAllBooksByWhere(where);
+        sqlSession.commit();
+        return bookList;
     }
 
     @Override

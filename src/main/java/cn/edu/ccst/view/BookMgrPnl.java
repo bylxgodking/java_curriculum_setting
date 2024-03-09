@@ -289,6 +289,14 @@ public class BookMgrPnl extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+    **
+    * @Description: 添加图书
+    * @Param: [evt]
+    * @return: void
+    * @Author: LuoXinYu
+    * @Date: 2024/3/11
+    */
     private void btnBookAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAddActionPerformed
         // 添加图书 图书编号不能重复
         String strId = txtISBN.getText().trim();
@@ -347,7 +355,7 @@ public class BookMgrPnl extends javax.swing.JPanel {
         book.setPublisher(strPublisher);
         book.setPrice(dPrice);
         book.setMark(strMark);
-        //book.setBook_abstract(strAbstract);
+        book.setBookAbstract(strAbstract);
         book.setType(strType);
         book.setStatus("0");//状态正常
         
@@ -416,7 +424,7 @@ public class BookMgrPnl extends javax.swing.JPanel {
         book.setPublisher(strPublisher);
         book.setPrice(dPrice);
         book.setMark(strMark);
-        //book.setBook_abstract(strAbstract);
+        book.setBookAbstract(strAbstract);
         book.setType(strType);
         
         if (JOptionPane.showConfirmDialog(this, "确认修改？") == JOptionPane.OK_OPTION) {
