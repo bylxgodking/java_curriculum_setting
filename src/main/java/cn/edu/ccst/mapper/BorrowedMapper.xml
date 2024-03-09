@@ -3,10 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.ccst.mapper.BorrowedMapper">
+    <update id="BorrowAgain">
+
+    </update>
 
 
+    <update id="BorrowReturn">
 
-    <select id="queryBorrowsByUser" resultType="cn.edu.ccst.model.Borrowed">
-        select * from tb_borrowed where user_id =#{id}
+    </update>
+
+
+    <update id="BorrowBook">
+
+    </update>
+
+    <select id="queryBorrowsOfUser" resultType="cn.edu.ccst.model.Borrowed">
+
+    </select>
+
+
+    <select id="queryOneBorrowed" resultType="cn.edu.ccst.model.Borrowed">
+
+    </select>
+
+
+    <select id="queryAllBorrows" resultType="cn.edu.ccst.model.Borrowed">
+
     </select>
 </mapper>

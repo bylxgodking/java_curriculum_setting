@@ -3,10 +3,60 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.ccst.mapper.BookMapper">
-    <select id="findBookById" resultType="cn.edu.ccst.model.Book">
-        select * from tb_book where id = #{id}
+
+
+    <insert id="addBook">
+        INSERT INTO
+            tb_book
+        VALUES
+            (
+            #{id},
+            #{name},
+            #{type},
+            #{author},
+            #{publisher},
+            #{price},
+            #{abstract},
+            #{status},
+            #{mark},
+            )
+    </insert>
+
+    <update id="modBook">
+        UPDATE
+            tb_book
+        SET
+            id = #{id},
+            name=#{name},
+            type=#{type},
+            author = #{author},
+            publisher=#{publisher},
+            price=#{price},
+            abstract=#{abstract},
+            status=#{status},
+            mark=#{mark}
+    </update>
+
+    <delete id="delBook">
+        DELETE
+            tb_book
+        WHERE
+            id = #{id}
+    </delete>
+
+    <select id="queryBookById" resultType="cn.edu.ccst.model.Book">
+        SELECT
+            *
+        FROM
+            tb_book
+        WHERE
+            id = #{id}
     </select>
-    <select id="findAllBook" resultType="cn.edu.ccst.model.Book">
-        select * from tb_book
+
+    <select id="queryAllBooksByWhere" resultType="cn.edu.ccst.model.Book">
+        SELECT
+            *
+        FROM
+            tb_book
     </select>
 </mapper>

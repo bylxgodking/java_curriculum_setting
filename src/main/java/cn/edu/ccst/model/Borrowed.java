@@ -86,4 +86,8 @@ public class Borrowed {
                 ", returnDate='" + returnDate + '\'' +
                 '}';
     }
+
+    public String getBorrow_date() {
+        return null;
+    }
 }

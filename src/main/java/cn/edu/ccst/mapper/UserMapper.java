@@ -10,6 +10,12 @@ import cn.edu.ccst.model.User;
  * @Description:
  */
 public interface UserMapper {
-    public User findUserById(String id);
+    public User queryUserById(String id);
+    public boolean addUser(User user);
 
+    public boolean delUser(User user);
+
+    public boolean resetUserPass(User user);
+
+    public boolean modUserPassword(User user);
 }

@@ -12,6 +12,9 @@ import java.util.List;
  * @Description:
  */
 public interface BookMapper {
-    Book findBookById(String id);
-    List<Book> findAllBook();
+    public Book queryBookById(String id);
+    public boolean addBook(Book book);
+    public boolean modBook(Book book);
+    public boolean delBook(Book book);
+    public List<Book> queryAllBooksByWhere(Book where);
 }

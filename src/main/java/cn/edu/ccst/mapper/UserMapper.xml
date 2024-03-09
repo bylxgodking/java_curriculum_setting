@@ -3,7 +3,43 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.ccst.mapper.UserMapper">
-    <select id="findUserById" resultType="User">
+
+
+    <insert id="addUser">
+        INSERT INTO tb_user
+        VALUES
+                (#{id} ,#{name} ,#{password}, #{type} );
+    </insert>
+
+
+    <update id="resetUserPass">
+        UPDATE
+            tb_user
+        SET
+            PASSWORD = ‘123456’
+    </update>
+
+
+    <update id="modUserPassword">
+        UPDATE
+            tb_user
+        SET
+            PASSWORD = #{password}
+        where
+            id = #{id}
+    </update>
+
+
+    <delete id="delUser">
+        DELETE
+        FROM
+            tb_user
+        WHERE
+            id = #{id}
+    </delete>
+
+
+    <select id="queryUserById" resultType="User">
         SELECT
             *
         FROM
@@ -11,4 +47,9 @@
         WHERE
             id = #{id}
     </select>
+
+
+
+
+
 </mapper>
