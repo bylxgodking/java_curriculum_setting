@@ -3,6 +3,13 @@ package cn.edu.ccst.service.impl;
 import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.UserService;
+import cn.edu.ccst.util.MybatisUtil;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.InputStream;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
 
 
-    /*
+    /**
     **
     * @Description: 根据id查用户
     * @Param: [id]
@@ -27,7 +34,10 @@ public class UserServiceImpl implements UserService {
     */
     @Override
     public User queryUserById(String id) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User target = userMapper.queryUserById(id);
+        return target;
     }
 
 
@@ -45,7 +55,11 @@ public class UserServiceImpl implements UserService {
     */
     @Override
     public boolean addUser(User user) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        boolean target = userMapper.addUser(user);
+        sqlSession.commit();
+        return target;
     }
 
 
@@ -63,12 +77,12 @@ public class UserServiceImpl implements UserService {
     */
     @Override
     public boolean modUserPassword(User user) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        boolean user1 = userMapper.modUserPassword(user);
+        sqlSession.commit();
+        return user1;
     }
-
-
-
-
     /*
     **
     * @Description: 删除用户

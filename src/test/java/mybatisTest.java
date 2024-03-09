@@ -2,7 +2,6 @@ import cn.edu.ccst.mapper.BookMapper;
 import cn.edu.ccst.mapper.BorrowedMapper;
 import cn.edu.ccst.model.Book;
 import cn.edu.ccst.model.Borrowed;
-import cn.edu.ccst.view.WelcomeView;
 import org.apache.ibatis.io.Resources;
 import org.junit.Before;
 
@@ -37,25 +36,8 @@ public class mybatisTest {
     public void TestMybatis()
     {
         BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
-        Book book = bookMapper.findBookById("1");
+        Book book = bookMapper.queryBookById("1");
         System.out.println(book);
     }
-
-    public void borrowTest()
-    {
-        BorrowedMapper borrowedMapper = sqlSession.getMapper(BorrowedMapper.class);
-        List<Borrowed> borrowed = borrowedMapper.queryBorrowsByUser("1");
-        for (Borrowed borrowedValue:borrowed
-             ) {
-
-        }
-    }
-    @Test
-    public void textWelcome()
-    {
-        WelcomeView view = new WelcomeView();
-        view.setVisible(true);
-    }
-
 
 }

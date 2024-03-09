@@ -77,5 +77,7 @@ public interface BorrowedService {
     public boolean BorrowReturn(Borrowed borr);
 
     public List<Borrowed> queryAllBorroweds();
+
+    public List<Borrowed> queryBorrowedsOfBook(String strBookId);
 }
 

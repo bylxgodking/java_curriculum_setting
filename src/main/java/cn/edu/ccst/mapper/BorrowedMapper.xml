@@ -14,7 +14,12 @@
 
 
     <update id="BorrowBook">
-
+        update tb_borrowed
+        set
+            bookId = #{bookId},
+            userId=#{userId}
+            borrowDate=#{borrowDate},
+            returnDate=#{returnDate}
     </update>
 
     <select id="queryBorrowsOfUser" resultType="cn.edu.ccst.model.Borrowed">
@@ -28,6 +33,13 @@
 
 
     <select id="queryAllBorrows" resultType="cn.edu.ccst.model.Borrowed">
+
+    </select>
+    <select id="queryBorrowedsOfUser" resultType="cn.edu.ccst.model.Borrowed">
+
+
+    </select>
+    <select id="queryBorrowedsOfBook" resultType="cn.edu.ccst.model.Borrowed">
 
     </select>
 </mapper>

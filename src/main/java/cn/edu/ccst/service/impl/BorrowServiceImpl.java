@@ -1,8 +1,13 @@
 package cn.edu.ccst.service.impl;
 
+import cn.edu.ccst.mapper.BorrowedMapper;
+import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.Book;
 import cn.edu.ccst.model.Borrowed;
+import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.BookService;
+import cn.edu.ccst.util.MybatisUtil;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -41,35 +46,59 @@ public class BorrowServiceImpl implements BookService {
 
     @Override
     public boolean BorrowBook(Borrowed borrowed) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        boolean target = mapper.BorrowBook(borrowed);
+        return target;
     }
 
     @Override
     public boolean BorrowReturn(Borrowed borrowed) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        boolean target = mapper.BorrowReturn(borrowed);
+        return target;
     }
 
     public List<Borrowed> queryBorrowsOfBook(String bookId) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        List<Borrowed> borroweds = mapper.queryBorrowsOfUser(bookId);
+        return borroweds;
     }
 
     public List<Borrowed> queryOneBorrowed(String userId, String bookId) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        List<Borrowed> borroweds = mapper.queryOneBorrowed(userId,bookId);
+        return borroweds;
     }
 
     public boolean BorrowAgain(Borrowed borr) {
-        return false;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        boolean target = mapper.BorrowAgain(borr);
+        return target;
     }
 
     public List<Borrowed> queryAllBorroweds() {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        List<Borrowed> borroweds = mapper.queryAllBorrows();
+        return borroweds;
     }
 
     public List<Borrowed> queryBorrowedsOfUser(String strUserId) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        List<Borrowed> borroweds = mapper.queryBorrowedsOfUser(strUserId);
+        return borroweds;
     }
 
     public List<Borrowed> queryBorrowedsOfBook(String strBookId) {
-        return null;
+        SqlSession sqlSession = MybatisUtil.init();
+        BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
+        List<Borrowed> borroweds = mapper.queryBorrowedsOfBook(strBookId);
+        return borroweds;
     }
 }

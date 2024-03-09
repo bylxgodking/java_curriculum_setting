@@ -1,6 +1,8 @@
 package cn.edu.ccst.service;
-import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.User;
+
+import java.io.IOException;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,7 +13,7 @@ import cn.edu.ccst.model.User;
 
 public interface UserService {
 
-    public User queryUserById(String id);
+    public User queryUserById(String id) throws IOException;
 
     public boolean addUser(User user);
 

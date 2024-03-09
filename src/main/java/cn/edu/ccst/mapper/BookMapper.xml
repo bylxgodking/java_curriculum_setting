@@ -16,9 +16,9 @@
             #{author},
             #{publisher},
             #{price},
-            #{abstract},
+            #{setBookAbstract},
             #{status},
-            #{mark},
+            #{mark}
             )
     </insert>
 
@@ -32,13 +32,13 @@
             author = #{author},
             publisher=#{publisher},
             price=#{price},
-            abstract=#{abstract},
+            abstract=#{setBookAbstract},
             status=#{status},
             mark=#{mark}
     </update>
 
     <delete id="delBook">
-        DELETE
+        DELETE FROM
             tb_book
         WHERE
             id = #{id}

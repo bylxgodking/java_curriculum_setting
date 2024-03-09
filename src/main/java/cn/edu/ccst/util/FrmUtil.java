@@ -20,7 +20,7 @@ import javax.swing.UIManager;
  * @author
  */
 public class FrmUtil {
-    public static final String title = "XXX图书馆管理系统";//系统标题
+    public static final String title = "城科图书馆管理系统";//系统标题
     public static final int fontSize = 24;//控件字体大小
     public static final String MANAGER_USER = "1";//管理员
     public static final String OPRATOR_USER = "2";//操作员

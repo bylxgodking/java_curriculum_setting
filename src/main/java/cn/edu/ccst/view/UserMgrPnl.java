@@ -1,9 +1,13 @@
 package cn.edu.ccst.view;
 
+import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.impl.UserServiceImpl;
 import cn.edu.ccst.util.FrmUtil;
+import cn.edu.ccst.util.MybatisUtil;
 import cn.edu.ccst.util.StringUtil;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.SqlSession;
 
 import javax.swing.JOptionPane;
 
@@ -267,6 +271,14 @@ public class UserMgrPnl extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /*
+    **
+    * @Description: 修改密码逻辑修复完毕
+    * @Param: [evt]
+    * @return: void
+    * @Author: LuoXinYu
+    * @Date: 2024/3/10
+    */
     private void btnModPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModPasswordActionPerformed
         // 修改密码
         String passNew = txtNewPassword.getText().trim();
@@ -278,15 +290,16 @@ public class UserMgrPnl extends javax.swing.JPanel {
         }
         String passOld = txtOldPassword.getText().trim();
         if (!passOld.equals(userLogin.getPassword())) {
+            //System.out.println("原密码是="+userLogin.getPassword());
             JOptionPane.showMessageDialog(this, "原密码不正确，请重新输入！");
             resetFrmOfUp();//重置界面上半部分
             txtOldPassword.requestFocus();
             return;
         }
-        userLogin.setPassword(passNew);
+             userLogin.setPassword(passNew);
         if (!userServiceImpl.modUserPassword(userLogin)) {
             JOptionPane.showMessageDialog(this, "修改密码失败，请联系管理员！");
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "密码修改成功！");
             resetFrmOfUp();

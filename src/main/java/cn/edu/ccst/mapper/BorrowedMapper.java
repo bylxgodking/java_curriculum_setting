@@ -25,4 +25,6 @@ public interface BorrowedMapper {
 
     public boolean BorrowReturn(Borrowed borr);
 
+    List<Borrowed> queryBorrowedsOfUser(String strUserId);
+    List<Borrowed> queryBorrowedsOfBook(String strBookId);
 }
