@@ -22,8 +22,6 @@ public class UserServiceImpl implements UserService {
 
     private UserMapper userMapper;
 
-
-
     /**
     **
     * @Description: 根据id查用户

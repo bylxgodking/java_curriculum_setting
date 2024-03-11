@@ -15,8 +15,8 @@ import java.util.List;
  */
 public interface BorrowedMapper {
 
-    public List<Borrowed> queryBorrowsOfUser(String user_id);
-    public List<Borrowed> queryOneBorrowed(String user_id, String book_id);
+    public List<Borrowed> queryBorrowsOfUser(String userId);
+    public List<Borrowed> queryOneBorrowed(String userId, String bookId);
 
     public List<Borrowed> queryAllBorrows();
     public boolean BorrowBook(Borrowed borr);
