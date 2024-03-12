@@ -18,7 +18,7 @@ public interface BorrowedMapper {
     public List<Borrowed> queryBorrowsOfUser(String userId);
     public List<Borrowed> queryOneBorrowed(String userId, String bookId);
 
-    public List<Borrowed> queryAllBorrows();
+    public List<Borrowed> queryAllBorroweds();
     public boolean BorrowBook(Borrowed borr);
 
     public boolean BorrowAgain(Borrowed borr);

@@ -109,7 +109,7 @@ public class BorrowServiceImpl implements BookService {
     public List<Borrowed> queryAllBorroweds() {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
-        List<Borrowed> borroweds = mapper.queryAllBorrows();
+        List<Borrowed> borroweds = mapper.queryAllBorroweds();
         return borroweds;
     }
 

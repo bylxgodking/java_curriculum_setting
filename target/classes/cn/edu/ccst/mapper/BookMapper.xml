@@ -59,4 +59,7 @@
         FROM
             tb_book
     </select>
+    <select id="queryBooks" resultType="cn.edu.ccst.model.Book">
+        select * from tb_book
+    </select>
 </mapper>

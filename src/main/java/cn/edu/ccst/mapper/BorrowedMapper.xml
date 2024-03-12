@@ -16,13 +16,12 @@
 
 
     <update id="BorrowBook">
-        update tb_borrowed
-        set
-            book_id =#{bookId},
-            user_id=#{userId},
-            borrow_date=#{borrowDate},
-            return_date=#{returnDate}
-</update>
+        insert into tb_borrowed
+        values (#{bookId},
+                #{userId},
+                #{borrowDate},
+                #{returnDate})
+    </update>
 
     <select id="queryBorrowsOfUser" resultType="cn.edu.ccst.model.Borrowed">
      select * from tb_borrowed where book_id = #{bookId}
@@ -34,7 +33,7 @@
     </select>
 
 
-    <select id="queryAllBorrows" resultType="cn.edu.ccst.model.Borrowed">
+    <select id="queryAllBorroweds" resultType="cn.edu.ccst.model.Borrowed">
         select * from tb_borrowed
     </select>
     <select id="queryBorrowedsOfUser" resultType="cn.edu.ccst.model.Borrowed">
