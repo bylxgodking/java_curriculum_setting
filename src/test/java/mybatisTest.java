@@ -23,13 +23,29 @@ import org.junit.Test;
  */
 public class mybatisTest {
     SqlSession sqlSession=null;
-    @Before
+
     public void init() throws IOException {
         String source="mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(source);
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
         sqlSession = sqlSessionFactory.openSession();
+    }
+
+    @Test
+    public void initmybatis()
+    {
+        try {
+            String source = "mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(source);
+            SqlSessionFactory sqlSessionFactory =
+                    new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession sqlSession = sqlSessionFactory.openSession();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("mybatis≥ı ºªØ“Ï≥£!!!!");
+        }
     }
 
     @Test

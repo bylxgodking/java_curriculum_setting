@@ -19,14 +19,18 @@ public class Book {
     private String abstractText;
     private String status;
     private String mark;
-    private String setBookAbstract;
+    private String bookAbstract;
 
-    public String getSetBookAbstract() {
-        return setBookAbstract;
+    public Book(String bookId) {
+        this.id=bookId;
     }
 
-    public void setSetBookAbstract(String setBookAbstract) {
-        this.setBookAbstract = setBookAbstract;
+    public String getBookAbstract() {
+        return bookAbstract;
+    }
+
+    public void setBookAbstract(String BookAbstract) {
+        this.bookAbstract = BookAbstract;
     }
 
     public String getId() {
@@ -114,13 +118,13 @@ public class Book {
                 ", abstractText='" + abstractText + '\'' +
                 ", status='" + status + '\'' +
                 ", mark='" + mark + '\'' +
-                ", setBookAbstract='" + setBookAbstract + '\'' +
+                ", bookAbstract='" + bookAbstract + '\'' +
                 '}';
     }
 
     public Book() {}
 
-    public Book(String id, String name, String type, String author, String publisher, double price, String abstractText, String status, String mark, String setBookAbstract) {
+    public Book(String id, String name, String type, String author, String publisher, double price, String abstractText, String status, String mark, String bookAbstract) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -130,11 +134,8 @@ public class Book {
         this.abstractText = abstractText;
         this.status = status;
         this.mark = mark;
-        this.setBookAbstract = setBookAbstract;
+        this.bookAbstract = bookAbstract;
     }
 
-    public void setBookAbstract(String strAbstract) {
-        this.setBookAbstract=strAbstract;
-    }
 
 }

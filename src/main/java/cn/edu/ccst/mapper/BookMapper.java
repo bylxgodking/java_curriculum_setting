@@ -17,4 +17,5 @@ public interface BookMapper {
     public boolean modBook(Book book);
     public boolean delBook(Book book);
     public List<Book> queryAllBooksByWhere(Book where);
+    public List<Book> queryBooks();
 }

@@ -70,5 +70,8 @@ public interface BookService {
 
     boolean BorrowReturn(Borrowed borrowed);
 
+    List<Book> queryBooks();
+    List<Book> queryBookByWhere(String where);
+
 }
 

@@ -27,6 +27,7 @@ public class Borrowed {
         this.userId = userId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
+
     }
 
     public String getBookId() {
@@ -60,6 +61,7 @@ public class Borrowed {
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
+
 
     public User getUser() {
         return user;

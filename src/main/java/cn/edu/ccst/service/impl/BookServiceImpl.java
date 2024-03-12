@@ -7,6 +7,7 @@ import cn.edu.ccst.model.Borrowed;
 import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.BookService;
 import cn.edu.ccst.util.MybatisUtil;
+import cn.edu.ccst.util.StringUtil;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -24,7 +25,6 @@ public class BookServiceImpl implements BookService {
         SqlSession sqlSession = MybatisUtil.init();
         BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
         Book book =bookMapper.queryBookById(id);
-        sqlSession.commit();
         return book;
     }
 
@@ -57,11 +57,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> queryAllBooksByWhere(Book where) {
-        SqlSession sqlSession = MybatisUtil.init();
-        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
-        List<Book> bookList = bookMapper.queryAllBooksByWhere(where);
-        sqlSession.commit();
-        return bookList;
+            return new BookServiceImpl().queryBooks();
     }
 
     @Override
@@ -72,5 +68,18 @@ public class BookServiceImpl implements BookService {
     @Override
     public boolean BorrowReturn(Borrowed borrowed) {
         return false;
+    }
+
+    @Override
+    public List<Book> queryBooks() {
+        SqlSession sqlSession = MybatisUtil.init();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        List<Book> bookList = bookMapper.queryBooks();
+        return bookList;
+    }
+
+    @Override
+    public List<Book> queryBookByWhere(String where) {
+        return null;
     }
 }

@@ -45,10 +45,11 @@ public class BorrowServiceImpl implements BookService {
     }
 
     @Override
-    public boolean BorrowBook(Borrowed borrowed) {
+    public boolean BorrowBook(Borrowed borr) {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
-        boolean target = mapper.BorrowBook(borrowed);
+        boolean target = mapper.BorrowBook(borr);
+        sqlSession.commit();
         return target;
     }
 
@@ -57,7 +58,18 @@ public class BorrowServiceImpl implements BookService {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
         boolean target = mapper.BorrowReturn(borrowed);
+        sqlSession.commit();
         return target;
+    }
+
+    @Override
+    public List<Book> queryBooks() {
+        return null;
+    }
+
+    @Override
+    public List<Book> queryBookByWhere(String where) {
+        return null;
     }
 
     public List<Borrowed> queryBorrowsOfBook(String bookId) {
@@ -67,10 +79,22 @@ public class BorrowServiceImpl implements BookService {
         return borroweds;
     }
 
+    /*
+    **
+    * @Description: 用于判断读者是否借阅该书
+    * @Param: [userId, bookId]
+    * @return: java.util.List<cn.edu.ccst.model.Borrowed>
+    * @Author: LuoXinYu
+    * @Date: 2024/3/12
+    */
     public List<Borrowed> queryOneBorrowed(String userId, String bookId) {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
         List<Borrowed> borroweds = mapper.queryOneBorrowed(userId,bookId);
+        for(Borrowed b:borroweds)
+        {
+            System.out.println(b);
+        }
         return borroweds;
     }
 
@@ -78,6 +102,7 @@ public class BorrowServiceImpl implements BookService {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);
         boolean target = mapper.BorrowAgain(borr);
+        sqlSession.commit();
         return target;
     }
 

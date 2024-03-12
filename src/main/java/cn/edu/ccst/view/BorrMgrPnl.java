@@ -491,8 +491,7 @@ public class BorrMgrPnl extends javax.swing.JPanel {
             txtBookId.requestFocus();
             return;
         }
-        List<Borrowed> borr = borrService.queryOneBorrowed(strUserId, strBookId);
-        
+        List<Borrowed> borr = new BorrowServiceImpl().queryOneBorrowed(strUserId,strBookId);
         if( borr.size() == 0 ){//读者没有借阅该书
             JOptionPane.showMessageDialog(this, "该读者还没有借阅该书，不能还书！");
             txtBookId.requestFocus();
@@ -505,8 +504,11 @@ public class BorrMgrPnl extends javax.swing.JPanel {
             txtBorrDate.requestFocus();
             return;
         }
+        System.out.println("borr.get(0) = " + borr.get(0));
+        System.out.println(borr.get(0).getBorrowDate());
+        System.out.println(strBorrDate);
         //还书时检查借书日期是否一致
-        if(!strBorrDate.equals(borr.get(0).getBorrow_date())){
+        if(!strBorrDate.equals(borr.get(0).getBorrowDate())){
             JOptionPane.showMessageDialog(this, "借书日期不正确！");
             txtBorrDate.requestFocus();
             return;
@@ -629,19 +631,30 @@ public class BorrMgrPnl extends javax.swing.JPanel {
      * @param borrs 
      */
     private void showBorroweds(List<Borrowed> borrs) {
+        if(borrs.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "暂无借书记录");
+        }
         String colums[] = {"借阅人","ISBN","书名","作者","出版社","借书日期","还书日期"};
         
         String rowData[][] = new String[borrs.size()][colums.length];
         
         for(int i = 0; i < rowData.length; i++){
             Borrowed borr = borrs.get(i);
+            borr.setUser(new UserServiceImpl().queryUserById(borr.getUserId()));
+            borr.setBook(new BookServiceImpl().queryBookById(borr.getBookId()));
+            System.out.println("user = " + new UserServiceImpl().queryUserById(borr.getUserId()));
+            System.out.println("book = " + new BookServiceImpl().queryBookById(borr.getBookId()));
+            System.out.println("borr.user = " + borr.getUser());
+            System.out.println("borr.book = " +  borr.getBook());
+
             rowData[i][0] = borr.getUser().getName();
             rowData[i][1] = borr.getBook().getId();
             rowData[i][2] = borr.getBook().getName();
             rowData[i][3] = borr.getBook().getAuthor();
             rowData[i][4] = borr.getBook().getPublisher();
             rowData[i][5] = borr.getBorrow_date();
-           // rowData[i][6] = borr.getReturn_date();
+            rowData[i][6] = borr.getReturnDate();
         }
         DefaultTableModel model = new DefaultTableModel(rowData, colums){
             @Override//重写方法，使得表格不能被编辑

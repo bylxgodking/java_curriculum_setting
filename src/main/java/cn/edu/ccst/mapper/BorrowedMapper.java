@@ -27,4 +27,6 @@ public interface BorrowedMapper {
 
     List<Borrowed> queryBorrowedsOfUser(String strUserId);
     List<Borrowed> queryBorrowedsOfBook(String strBookId);
+    public List<Book> queryAllBooksByWhere(Book where);
+    public List<Borrowed> queryBorrowedsByUser2Book(User user, Book book);
 }

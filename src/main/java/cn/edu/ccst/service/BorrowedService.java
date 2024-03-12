@@ -8,6 +8,7 @@ package cn.edu.ccst.service;
  * @Description:
  */
 
+import cn.edu.ccst.model.Book;
 import cn.edu.ccst.model.Borrowed;
 
 import java.util.List;
@@ -79,5 +80,6 @@ public interface BorrowedService {
     public List<Borrowed> queryAllBorroweds();
 
     public List<Borrowed> queryBorrowedsOfBook(String strBookId);
+    public List<Book> queryAllBooksByWhere(Book where);
 }
 
