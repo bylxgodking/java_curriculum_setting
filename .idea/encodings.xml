@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Controller" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Images" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/Tool" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/model" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/util/DBUtil.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/Login.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/LoginPage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/swing/Button.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/swing/ButtonOutLine.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/swing/MyPasswordField.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/swing/MyTextField.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/swing/PanelRound.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/Main.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBook.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBookType.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageBorrowInfo.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageFace.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageReader.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageReaderType.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/ManageSuper.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageFore.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageOne.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageThree.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PageTow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserBook.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserFace.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserMessage.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/UserReturn.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/Message.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PanelCover.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PanelLoading.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PanelLoginAndRegister.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PanelLoginAndRegister.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/ccst/view/PanelVerifyCode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/raven" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/book_bk.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/crud_book.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/exit.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/huanshu.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/jieshu.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/logo.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/logo2.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/icon/xujie.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/error.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/loading.gif" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/mail.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/pass.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/success.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/icon/user.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml" charset="UTF-8" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

@@ -10,6 +10,9 @@
         VALUES
                 (#{id} ,#{name} ,#{password}, #{type} );
     </insert>
+    <insert id="addUser1">
+        insert into tb_user
+    </insert>
 
 
     <update id="resetUserPass">
@@ -47,9 +50,12 @@
         WHERE
             id = #{id}
     </select>
-
-
-
+    <select id="queryUserByName" resultType="User">
+        select * from tb_user where name=#{name}
+    </select>
+    <select id="getAllIdCount" resultType="java.lang.Integer">
+        select * from tb_user
+    </select>
 
 
 </mapper>

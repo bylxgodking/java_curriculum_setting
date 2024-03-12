@@ -2,6 +2,8 @@ package cn.edu.ccst.mapper;
 
 import cn.edu.ccst.model.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -18,4 +20,9 @@ public interface UserMapper {
     public boolean resetUserPass(User user);
 
     public boolean modUserPassword(User user);
+    public User queryUserByName(String name);
+
+    boolean addUser1(User user);
+
+   List<User> getAllIdCount();
 }

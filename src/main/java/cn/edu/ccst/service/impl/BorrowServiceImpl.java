@@ -113,6 +113,14 @@ public class BorrowServiceImpl implements BookService {
         return borroweds;
     }
 
+    /*
+    **
+    * @Description: 有读者编号，没有图书编号
+    * @Param: [strUserId]
+    * @return: java.util.List<cn.edu.ccst.model.Borrowed>
+    * @Author: LuoXinYu
+    * @Date: 2024/3/13
+    */
     public List<Borrowed> queryBorrowedsOfUser(String strUserId) {
         SqlSession sqlSession = MybatisUtil.init();
         BorrowedMapper mapper = sqlSession.getMapper(BorrowedMapper.class);

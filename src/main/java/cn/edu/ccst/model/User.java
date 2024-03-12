@@ -23,6 +23,12 @@ public class User {
         this.type = type;
     }
 
+    public User(String name, String password, String type) {
+        this.name = name;
+        this.password = password;
+        this.type = type;
+    }
+
     public User(String userId) {
         this.id=userId;
     }

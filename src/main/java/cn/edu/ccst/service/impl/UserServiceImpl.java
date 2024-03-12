@@ -4,12 +4,9 @@ import cn.edu.ccst.mapper.UserMapper;
 import cn.edu.ccst.model.User;
 import cn.edu.ccst.service.UserService;
 import cn.edu.ccst.util.MybatisUtil;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.InputStream;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -112,5 +109,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public void exitSys() {
         System.exit(0);
+    }
+
+    @Override
+    public User queryUserByName(String UserId) {
+        SqlSession sqlSession = MybatisUtil.init();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user1 = userMapper.queryUserByName(UserId);
+        sqlSession.commit();
+        return user1;
+    }
+
+
+    @Override
+    public String getAllIdCount() {
+        SqlSession sqlSession = MybatisUtil.init();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        List<User> allIdCount = userMapper.getAllIdCount();
+        int count = allIdCount.size();
+
+        sqlSession.commit();
+        return String.valueOf(count);
     }
 }

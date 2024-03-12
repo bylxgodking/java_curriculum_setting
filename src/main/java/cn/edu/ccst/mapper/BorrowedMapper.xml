@@ -37,11 +37,11 @@
         select * from tb_borrowed
     </select>
     <select id="queryBorrowedsOfUser" resultType="cn.edu.ccst.model.Borrowed">
-
+        select * from tb_borrowed where user_id =#{userId}
 
     </select>
     <select id="queryBorrowedsOfBook" resultType="cn.edu.ccst.model.Borrowed">
-
+    select * from tb_borrow where book_id=#{bookId}
     </select>
     <select id="queryAllBooksByWhere" resultType="cn.edu.ccst.model.Book">
 

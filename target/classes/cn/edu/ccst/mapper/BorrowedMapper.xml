@@ -5,59 +5,65 @@
 <mapper namespace="cn.edu.ccst.mapper.BorrowedMapper">
 
     <update id="BorrowAgain">
-
+        update tb_borrowed set return_date = #{returnDate}
+        where user_id = #{userId}
     </update>
 
 
     <update id="BorrowReturn">
-
+        delete from tb_borrowed where user_id = #{userId} and book_id = #{bookId}
     </update>
 
 
     <update id="BorrowBook">
-        update tb_borrowed
-        set
-            bookId = #{bookId},
-            userId=#{userId},
-            borrowDate=#{borrowDate},
-            returnDate=#{returnDate}
-</update>
+        insert into tb_borrowed
+        values (#{bookId},
+                #{userId},
+                #{borrowDate},
+                #{returnDate})
+    </update>
 
     <select id="queryBorrowsOfUser" resultType="cn.edu.ccst.model.Borrowed">
-        select * from tb_borrowed where book_id = #{bookId}
+     select * from tb_borrowed where book_id = #{bookId}
     </select>
 
 
     <select id="queryOneBorrowed" resultType="cn.edu.ccst.model.Borrowed">
-        bor.bookId AS bookId,
-        bor.userId AS userId,
-        bor.borrowDate AS borrowDate,
-        bor.returnDate AS returnDate,
-        usr.userName AS userName,
-        bk.bookName AS bookName,
-        bk.bookType AS bookType,
-        bk.author AS bookAuthor,
-        bk.publisher AS bookPublisher,
-        bk.price AS bookPrice
-    FROM
-        Borrowed bor
-    JOIN
-        User usr ON bor.userId = usr.userId
-    JOIN
-        Book bk ON bor.bookId = bk.bookId
-    WHERE
-        bor.userId = #{userId}
+    select * from tb_borrowed where user_id=#{arg0} and book_id = #{arg1}
     </select>
 
 
-    <select id="queryAllBorrows" resultType="cn.edu.ccst.model.Borrowed">
-
+    <select id="queryAllBorroweds" resultType="cn.edu.ccst.model.Borrowed">
+        select * from tb_borrowed
     </select>
     <select id="queryBorrowedsOfUser" resultType="cn.edu.ccst.model.Borrowed">
-
+        select * from tb_borrowed where user_id =#{userId}
 
     </select>
     <select id="queryBorrowedsOfBook" resultType="cn.edu.ccst.model.Borrowed">
+    select * from tb_borrow where book_id=#{bookId}
+    </select>
+    <select id="queryAllBooksByWhere" resultType="cn.edu.ccst.model.Book">
 
+    </select>
+    <select id="queryBorrowedsByUser2Book" resultType="cn.edu.ccst.model.Borrowed">
+        a.user_id AS user_id,
+        a.book_id AS book_id,
+        a.borrow_date AS borrow_date,
+        a.return_date AS return_date,
+        b.name AS user_name,
+        c.name AS book_name,
+        c.type AS book_type,
+        c.author AS book_author,
+        c.publisher AS book_publisher,
+        c.price AS book_price
+    FROM
+        tb_borrowed a,
+        tb_user b,
+        tb_book c
+    WHERE
+        a.user_id = b.id
+        AND a.book_id = c.id
+        AND a.book_id = #{bookId}
     </select>
 </mapper>

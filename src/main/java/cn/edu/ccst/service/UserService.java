@@ -27,5 +27,10 @@ public interface UserService {
      * 退出系统.
      */
     public void exitSys();
+
+    User queryUserByName(String name);
+
+
+    String getAllIdCount();
 }
 
