@@ -6,22 +6,21 @@ import cn.edu.ccst.util.StringUtil;
 import cn.edu.ccst.swing.Button;
 import cn.edu.ccst.swing.MyPasswordField;
 import cn.edu.ccst.swing.MyTextField;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Font;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import cn.edu.ccst.service.impl.UserServiceImpl;
 
 import net.miginfocom.swing.MigLayout;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
 
     public User getUser() {
         return user;
     }
-
     private User user;
 
     public PanelLoginAndRegister(ActionListener eventRegister) {
@@ -30,6 +29,11 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         initLogin();
         login.setVisible(false);
         register.setVisible(true);
+    }
+
+    public void closeNowWindow()
+    {
+        register.setVisible(false);
     }
 
     private void initRegister(ActionListener eventRegister) {
@@ -82,11 +86,11 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 } else {
                     type = FrmUtil.READER_USER;
                 }
-                if (new UserServiceImpl().addUser(new User(String.valueOf(Integer.valueOf(new UserServiceImpl().getAllIdCount())+1),userName,"123456",type))) {
+                if (new UserServiceImpl().addUser(new User(String.valueOf(Integer.valueOf(new UserServiceImpl().getAllIdCount())+1),userName,password,type))) {
                     //JOptionPane.showMessageDialog(this, "用户添加成功！");
-                    new Message().showMessage(Message.MessageType.SUCCESS,"用户添加成功！");
+                    // 创建 JFrame 对象并设置属性
+                    JOptionPane.showMessageDialog(register, "register successful you id is"+new UserServiceImpl().getAllIdCount()+"  Please use him as your login id");
                     new Main().setVisible(true);
-
                 } else {
                     new Message().showMessage(Message.MessageType.ERROR,"用户添加失败！");
                 }

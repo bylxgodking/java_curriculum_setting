@@ -6,10 +6,13 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import javax.swing.JLayeredPane;
+
+import cn.edu.ccst.service.impl.UserServiceImpl;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main extends javax.swing.JFrame {
 
@@ -27,6 +30,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         init();
+        String path = "applicationContext.xml";
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(path);
+        UserServiceImpl userService = context.getBean("userServiceImpl", UserServiceImpl.class);
     }
 
     private void init() {
@@ -205,6 +212,11 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
+
+        String path = "applicationContext.xml";
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(path);
+        UserServiceImpl userService = context.getBean("userServiceImpl", UserServiceImpl.class);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -234,6 +246,7 @@ public class Main extends javax.swing.JFrame {
 
                 Main maim=new Main();
                 //new PanelVerifyCode().setVisible(true);
+                maim.setResizable(true);
                 maim.setVisible(true);
             }
         });

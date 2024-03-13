@@ -6,8 +6,10 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import cn.edu.ccst.service.impl.UserServiceImpl;
 import  cn.edu.ccst.util.FrmUtil;
 import  cn.edu.ccst.util.StringUtil;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 系统主界面.
@@ -85,6 +87,10 @@ public class MainFrm extends javax.swing.JFrame {
     }
 
     public void init() {
+        String path = "applicationContext.xml";
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(path);
+        UserServiceImpl userService = context.getBean("userServiceImpl", UserServiceImpl.class);
         pnlUserMgr = new UserMgrPnl(userLogin);//创建用户管理子界面对象
         pnlBookMgr = new BookMgrPnl(userLogin);
         pnlBorrMgr = new BorrMgrPnl(userLogin);
@@ -101,6 +107,7 @@ public class MainFrm extends javax.swing.JFrame {
         });
         jToolBar1.setFloatable(false);//工具栏不可浮动
         setUserMenu(userLogin.getType());//根据用户类型设置菜单显示
+        this.setResizable(true);
     }
 
     public MainFrm(User user) {

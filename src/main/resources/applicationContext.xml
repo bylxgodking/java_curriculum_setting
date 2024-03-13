@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:tx="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!-- 目标类,UserService -->
+    <bean id="userServiceImpl" class="cn.edu.ccst.service.impl.UserServiceImpl"/>
+
+    <!-- 切面类 -->
+    <bean id="myAspect" class="cn.edu.ccst.aspect.MyAspect"/>
+
+    <!-- 织入 -->
+    <aop:config proxy-target-class="true">
+        <!-- 确定切面-->
+        <aop:aspect ref="myAspect">
+            <!-- 1确定通知/增强类型 -->
+            <!-- 2确定切面中增强的方法 -->
+            <!-- 3确定目标类以及目标方法
+               execution(返回值类型 包路径.类名.方法名(参数))
+               返回值类型任意,写 *
+               包路径,写cn.edu
+               类名,UserServiceImpl,如果是所有类,写 *
+               方法名,findUserById,如果是所有方法,写 *
+               () 参数列表
+               (..) 代表任意参数
+            -->
+            <aop:around method="myAround"
+                        pointcut="execution(* cn.edu.ccst.service.impl.*.*(..))"/>
+
+        </aop:aspect>
+
+    </aop:config>
+
+
+</beans>

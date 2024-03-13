@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Swing9patch">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../java包/Swing9patch.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../java包/Swing9patch.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
